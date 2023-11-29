@@ -1,0 +1,22 @@
+name: flutter_app_book
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.3 <4.0.0'
+
+dependencies:
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  uno: ^1.1.9
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  mocktail: ^1.0.1
+
+flutter:
+  uses-material-design: true
