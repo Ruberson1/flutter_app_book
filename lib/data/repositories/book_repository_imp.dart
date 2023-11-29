@@ -2,8 +2,8 @@
 
 import 'package:dio/dio.dart';
 
-import '../../core/entities/book_entity.dart';
 import '../../core/repositories/i_book_repository.dart';
+import '../models/book.dart';
 
 
 class BookRepositoryImp implements IBookRepository {
@@ -14,7 +14,7 @@ class BookRepositoryImp implements IBookRepository {
   @override
   Future<List<Book>> getBooks() async {
     try {
-      final response = await dio.get('your_api_endpoint/books');
+      final response = await dio.get('https://escribo.com/books.json');
       final List<dynamic> data = response.data;
       return data.map((json) => Book.fromJson(json)).toList();
     } catch (error) {

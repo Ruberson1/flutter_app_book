@@ -1,7 +1,7 @@
 // book_use_case.dart
 
 
-import '../entities/book_entity.dart';
+import '../../data/models/book.dart';
 import '../repositories/i_book_repository.dart';
 
 abstract class IBookUseCase {

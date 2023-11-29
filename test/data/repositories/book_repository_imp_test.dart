@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_app_book/core/entities/book_entity.dart';
 import 'package:flutter_app_book/core/repositories/i_book_repository.dart';
+import 'package:flutter_app_book/data/models/book.dart';
 import 'package:flutter_app_book/data/repositories/book_repository_imp.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -40,7 +40,7 @@ void main() {
       requestOptions: RequestOptions(path: 'your_api_endpoint/books'),
     );
 
-    when(() => mockDio.get('your_api_endpoint/books')).thenAnswer((_) async => response);
+    when(() => mockDio.get('https://escribo.com/books.json')).thenAnswer((_) async => response);
 
     // Act
     final result = await repository.getBooks();
@@ -51,6 +51,6 @@ void main() {
     expect(result[1], isA<Book>());
     expect(result[0].id, equals(1));
     expect(result[1].id, equals(2));
-    verify(() => mockDio.get('your_api_endpoint/books')).called(1);
+    verify(() => mockDio.get('https://escribo.com/books.json')).called(1);
   });
 }
