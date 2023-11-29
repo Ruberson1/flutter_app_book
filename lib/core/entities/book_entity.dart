@@ -8,15 +8,15 @@ class Book extends Equatable{
     final String author;
     final String coverUrl;
     final String downloadUrl;
-    final bool isFavorite;
+    final bool? isFavorite;
 
-    Book({
+    const Book({
         required this.id,
         required this.title,
         required this.author,
         required this.coverUrl,
         required this.downloadUrl,
-        required this.isFavorite
+        this.isFavorite
     });
 
     Book copyWith({
