@@ -8,10 +8,10 @@ abstract class IBookUseCase {
   Future<List<Book>> getBooks();
 }
 
-class BookUseCase implements IBookUseCase {
+class BookUseCaseImp implements IBookUseCase {
   final IBookRepository repository;
 
-  BookUseCase(this.repository);
+  BookUseCaseImp(this.repository);
 
   @override
   Future<List<Book>> getBooks() async {

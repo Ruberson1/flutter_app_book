@@ -13,13 +13,13 @@ void main() {
 
   setUp(() {
     mockRepository = MockBookRepository();
-    useCase = BookUseCase(mockRepository);
+    useCase = BookUseCaseImp(mockRepository);
   });
 
   test('should get a list of books from the repository', () async {
     // Arrange
     final books = [
-      const Book(id: 1, title: 'Book 1', author: 'Author 1', coverUrl: '', downloadUrl: '', isFavorite: false),
+      const Book(id: 1, title: 'Book 1', author: 'Author 1', coverUrl: '', downloadUrl: ''),
       const Book(id: 2, title: 'Book 1', author: 'Author 1', coverUrl: '', downloadUrl: '', isFavorite: true),
     ];
 

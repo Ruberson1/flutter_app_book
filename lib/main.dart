@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uno/uno.dart';
 
 void main() {
   runApp(const MainApp());
@@ -20,12 +19,3 @@ class MainApp extends StatelessWidget {
   }
 }
 
-void fetchBooks () {
-  final uno = Uno();
-
-    uno.get('https://escribo.com/books.json').then((response){
-      print(response.data); // it's a Map<String, dynamic>.
-    }).catchError((error){
-      print(error); // It's a UnoError.
-    });
-}
