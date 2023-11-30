@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_book/src/books/core/repositories/i_book_repository.dart';
 import 'package:flutter_app_book/src/books/core/use_cases/book_use_case_imp.dart';
 import 'package:flutter_app_book/src/books/data/repositories/book_repository_imp.dart';
+import 'package:flutter_app_book/src/books/data/repositories/preferences_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'src/books/ui/cubit/book_cubit.dart';
@@ -20,17 +21,19 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         RepositoryProvider(create: (ctx) => Dio()),
-
         RepositoryProvider<IBookRepository>(
           create: (ctx) => BookRepositoryImp(ctx.read<Dio>()),
         ),
-
         RepositoryProvider<IBookUseCase>(
           create: (ctx) => BookUseCaseImp(ctx.read<IBookRepository>()),
         ),
-
+        RepositoryProvider<IPreferencesRepository>(
+            create: (_) => PreferencesRepository()),
         BlocProvider<BookCubit>(
-          create: (ctx) => BookCubit(ctx.read<IBookUseCase>()),
+          create: (ctx) => BookCubit(
+            ctx.read<IBookUseCase>(),
+            ctx.read<IPreferencesRepository>(),
+          ),
         ),
       ],
       child: MaterialApp(

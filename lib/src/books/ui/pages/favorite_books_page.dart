@@ -40,7 +40,7 @@ class FavoriteBooksPage extends StatelessWidget {
               );
             } else {
               return const Center(
-                child: Text('No favorite books yet.'),
+                child: Text('Não existem livros favoritos ainda.'),
               );
             }
           } else if (state is ErrorState) {
@@ -56,7 +56,7 @@ class FavoriteBooksPage extends StatelessWidget {
   }
 
   void _navigateToBookDetails(BuildContext context, Book book) {
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: (context) => BookDetailsPage(book: book),

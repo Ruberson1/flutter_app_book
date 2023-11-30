@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore: depend_on_referenced_packages
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../data/models/book.dart';
 import '../cubit/book_cubit.dart';
@@ -48,7 +50,6 @@ class BookDetailsPage extends StatelessWidget {
                     ),
                     onPressed: () {
                       context.read<BookCubit>().toggleFavorite(book.id);
-                      // Após favoritar, redireciona para a página de favoritos
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
@@ -58,10 +59,7 @@ class BookDetailsPage extends StatelessWidget {
                     },
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      // Adicione aqui a lógica para iniciar o download
-                      // usando o link disponível em book.downloadUrl
-                    },
+                    onPressed: _launchUrl,
                     child: const Text('Download'),
                   ),
                 ],
@@ -71,5 +69,12 @@ class BookDetailsPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _launchUrl() async {
+    final Uri url = Uri.parse(book.downloadUrl);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
   }
 }

@@ -1,25 +1,35 @@
-// preferences_repository.dart
 import 'package:shared_preferences/shared_preferences.dart';
 
-abstract interface class IPreferencesRepository {
-
-  Future<bool> getFavoriteStatus(int bookId);
-
-  Future<void> setFavoriteStatus(int bookId, bool isFavorite);
+abstract class IPreferencesRepository {
+  Future<List<int>> getFavoriteBookIds();
+  Future<void> addFavoriteBookId(int bookId);
+  Future<void> removeFavoriteBookId(int bookId);
 }
 
-class PreferencesRepository implements IPreferencesRepository{
+class PreferencesRepository implements IPreferencesRepository {
   static const String favoriteKeyPrefix = 'favorite_';
 
   @override
-  Future<bool> getFavoriteStatus(int bookId) async {
+  Future<List<int>> getFavoriteBookIds() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('$favoriteKeyPrefix$bookId') ?? false;
+    final keys = prefs.getKeys();
+    final favoriteKeys = keys.where((key) => key.startsWith(favoriteKeyPrefix));
+
+    final favoriteBookIds =
+        favoriteKeys.map((key) => int.parse(key.substring(favoriteKeyPrefix.length))).toList();
+
+    return favoriteBookIds;
   }
 
   @override
-  Future<void> setFavoriteStatus(int bookId, bool isFavorite) async {
+  Future<void> addFavoriteBookId(int bookId) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('$favoriteKeyPrefix$bookId', isFavorite);
+    await prefs.setBool('$favoriteKeyPrefix$bookId', true);
+  }
+
+  @override
+  Future<void> removeFavoriteBookId(int bookId) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('$favoriteKeyPrefix$bookId');
   }
 }
