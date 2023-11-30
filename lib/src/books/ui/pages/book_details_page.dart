@@ -14,7 +14,7 @@ class BookDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Book Details'),
+        title: const Text('Detalhe'),
       ),
       body: Center(
         child: Column(

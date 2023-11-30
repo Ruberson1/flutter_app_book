@@ -13,7 +13,7 @@ class FavoriteBooksPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favorite Books'),
+        title: const Text('Favoritos'),
       ),
       body: BlocBuilder<BookCubit, BookState>(
         builder: (context, state) {
