@@ -1,6 +1,6 @@
-import 'package:flutter_app_book/core/repositories/i_book_repository.dart';
-import 'package:flutter_app_book/core/use_cases/book_use_case_imp.dart';
-import 'package:flutter_app_book/data/models/book.dart';
+import 'package:flutter_app_book/src/books/core/repositories/i_book_repository.dart';
+import 'package:flutter_app_book/src/books/core/use_cases/book_use_case_imp.dart';
+import 'package:flutter_app_book/src/books/data/models/book.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

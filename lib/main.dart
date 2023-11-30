@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_book/core/repositories/i_book_repository.dart';
-import 'package:flutter_app_book/core/use_cases/book_use_case_imp.dart';
-import 'package:flutter_app_book/data/repositories/book_repository_imp.dart';
+import 'package:flutter_app_book/src/books/core/repositories/i_book_repository.dart';
+import 'package:flutter_app_book/src/books/core/use_cases/book_use_case_imp.dart';
+import 'package:flutter_app_book/src/books/data/repositories/book_repository_imp.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'ui/cubit/book_cubit.dart';
-import 'ui/pages/book_page.dart';
+import 'src/books/ui/cubit/book_cubit.dart';
+import 'src/books/ui/pages/book_page.dart';
 
 void main() {
   runApp(const AppWidget());

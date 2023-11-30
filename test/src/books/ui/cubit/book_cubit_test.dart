@@ -1,9 +1,9 @@
 
 
-import 'package:flutter_app_book/core/use_cases/book_use_case_imp.dart';
-import 'package:flutter_app_book/data/models/book.dart';
-import 'package:flutter_app_book/ui/cubit/book_cubit.dart';
-import 'package:flutter_app_book/ui/states/book_states.dart';
+import 'package:flutter_app_book/src/books/core/use_cases/book_use_case_imp.dart';
+import 'package:flutter_app_book/src/books/data/models/book.dart';
+import 'package:flutter_app_book/src/books/ui/cubit/book_cubit.dart';
+import 'package:flutter_app_book/src/books/ui/states/book_states.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
