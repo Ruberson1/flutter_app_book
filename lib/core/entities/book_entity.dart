@@ -3,7 +3,7 @@
 import '../../data/models/book.dart';
 
 class BookEntity {
-  final List<Book> books;
+  late List<Book> books;
 
   BookEntity(this.books);
 }
